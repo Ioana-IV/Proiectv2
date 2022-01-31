@@ -1,0 +1,66 @@
+﻿@page "/{id:int?}"
+@model Ivanov_Ioana_Proiect.Pages.Purchases.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase[0].PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase[0].PaymentType.PaymentTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase[0].Payee.PayeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase[0].Category.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase[0].Details)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Purchase) {
+       <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentType.PaymentTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payee.PayeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

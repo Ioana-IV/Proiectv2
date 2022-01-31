@@ -1,0 +1,66 @@
+﻿@page "{id:int}"
+@model Ivanov_Ioana_Proiect.Pages.Purchases.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Purchase</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Purchase.ID" />
+            <div class="form-group">
+                <label asp-for="Purchase.PurchaseDate" class="control-label"></label>
+                <input asp-for="Purchase.PurchaseDate" class="form-control" />
+                <span asp-validation-for="Purchase.PurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Purchase.Price" class="control-label"></label>
+                <input asp-for="Purchase.Price" class="form-control" />
+                <span asp-validation-for="Purchase.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Purchase.PaymentTypeID" class="control-label">Payment Type</label>
+                <select asp-for="Purchase.PaymentTypeID" asp-items="ViewBag.PaymentTypeID" class="form-control">
+                    <option value="">Choose Payment Type</option>  
+                </select>
+                <span asp-validation-for="Purchase.PaymentTypeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Purchase.PayeeID" class="control-label">Payee</label>
+                <select asp-for="Purchase.PayeeID" asp-items="ViewBag.PayeeID" class="form-control">
+                    <option value="">Choose Payee</option>
+                </select>
+                <span asp-validation-for="Purchase.PayeeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Purchase.CategoryID" class="control-label">Category</label>
+                <select asp-for="Purchase.CategoryID" asp-items="ViewBag.CategoryID" class="form-control">
+                    <option value="">Choose Category</option>
+                </select>
+                <span asp-validation-for="Purchase.CategoryID" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="Purchase.Details" class="control-label"></label>
+                <input asp-for="Purchase.Details" class="form-control" />
+                <span asp-validation-for="Purchase.Details" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

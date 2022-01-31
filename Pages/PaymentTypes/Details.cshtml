@@ -1,0 +1,32 @@
+﻿@page
+@model Ivanov_Ioana_Proiect.Pages.PaymentTypes.DetailsModel
+
+@{
+    ViewData["Title"] = "Chart";
+}
+
+<h1>Chart</h1>
+
+<div>
+    <h4>Chart</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentType.PaymentTypeName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PaymentType.PaymentTypeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentType.PaymentAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PaymentType.PaymentAmount)
+        </dd>
+    </dl>
+</div>
+<br />
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PaymentType.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
